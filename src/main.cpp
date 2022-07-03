@@ -961,7 +961,7 @@ void RunResection(vector<Vec3i> codingCornerPts, vector<Point3f> wPts, Mat camer
 	//solvePnP(Points3D, Points2D, camera_matrix, distortion_coefficients, rvec, tvec, false, SOLVEPNP_P3P);			//Need 4 input points to return a unique solution
 	//solvePnP(Points3D, Points2D, camera_matrix, distortion_coefficients, rvec, tvec, false, SOLVEPNP_IPPE);			//Input points must be >= 4 and object points must be coplanar
  
-	FileStorage result("result.yaml", FileStorage::WRITE); //输出结果文件
+	FileStorage result("./data/result.yaml", FileStorage::WRITE); //输出结果文件
 
 	Mat rotMat,P_oc;
 	Rodrigues(rvec, rotMat);       //由于solvePnP返回的是旋转向量，故用罗德里格斯变换变成旋转矩阵
@@ -971,9 +971,6 @@ void RunResection(vector<Vec3i> codingCornerPts, vector<Point3f> wPts, Mat camer
 	P_oc = -rotMat.inv() * tvec;
 	cout << "相机世界坐标：" << endl << P_oc << endl;
 	result << "CameraPosition" << P_oc;
-
-
-
 
 	//重投影
 	vector<Point2f> reProjPoints2D;
