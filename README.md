@@ -12,7 +12,7 @@
 
 ## 算法流程
 
-<img src="https://cdn.jsdelivr.net/gh/WuKongBlog/PicGo/img/flowchart.png"/>
+![flowchart](https://cdn.jsdelivr.net/gh/WuKongBlog/PicGo/img/flowchart.png)
 
 ### 图像预处理
 - 降采样
